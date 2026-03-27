@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 
 export default function Login() {
-  const [mode, setMode] = useState('admin'); // 'admin' | 'member'
+  const [mode, setMode] = useState('admin'); 
   const [form, setForm] = useState({ username: '', membershipId: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,12 +23,12 @@ export default function Login() {
 
     if (mode === 'admin') {
       if (!form.username.trim() || !form.password.trim()) {
-        setError('Username aur password required hain.');
+        setError('Username and password required.');
         return;
       }
     } else {
       if (!form.membershipId.trim() || !form.password.trim()) {
-        setError('Membership ID aur password required hain.');
+        setError('Membership ID and password required.');
         return;
       }
     }
@@ -66,14 +66,14 @@ export default function Login() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-md">
 
-        {/* Header */}
+    
         <div className="text-center mb-6">
           <div className="text-5xl mb-3">📚</div>
           <h1 className="text-3xl font-bold text-slate-800">Library Management</h1>
           <p className="text-slate-500 mt-1 text-sm">Sign in to continue</p>
         </div>
 
-        {/* Toggle Tabs */}
+      
         <div className="flex rounded-lg border border-slate-200 p-1 mb-6 bg-slate-50">
           <button
             type="button"
@@ -99,14 +99,14 @@ export default function Login() {
           </button>
         </div>
 
-        {/* Error */}
+       
         {error && (
           <div className="bg-red-50 border border-red-300 text-red-700 rounded-lg px-4 py-3 mb-5 text-sm">
             {error}
           </div>
         )}
 
-        {/* Form */}
+     
         <form onSubmit={handleSubmit} className="space-y-5">
           {mode === 'admin' ? (
             <div>
@@ -158,7 +158,7 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Member signup link */}
+      
         {mode === 'member' && (
           <p className="text-center text-sm text-slate-500 mt-5">
             Naya account?{' '}
@@ -168,7 +168,7 @@ export default function Login() {
           </p>
         )}
 
-        {/* Demo credentials */}
+       
         <div className="mt-6 p-4 bg-slate-50 rounded-xl text-xs text-slate-500 space-y-1">
           <div className="font-semibold text-slate-600 mb-1">Demo Credentials:</div>
           <div><span className="font-semibold text-blue-600">Admin:</span> adm / adm → Admin Dashboard</div>

@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
   });
 
   const login = (token, isAdmin, name, username) => {
-    // isAdmin backend se boolean true/false aata hai — safely convert karo
+  
     const isAdminBool = isAdmin === true || isAdmin === 'true';
     localStorage.setItem('token',   token);
     localStorage.setItem('isAdmin', String(isAdminBool));

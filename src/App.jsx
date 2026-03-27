@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-// Admin pages
+
 import Dashboard        from './pages/admin/Dashboard';
 import AddBook          from './pages/admin/maintenance/AddBook';
 import UpdateBook       from './pages/admin/maintenance/UpdateBook';
@@ -22,7 +22,7 @@ import ActiveIssues     from './pages/admin/reports/ActiveIssues';
 import OverdueReturns   from './pages/admin/reports/OverdueReturns';
 import IssueRequests    from './pages/admin/reports/IssueRequests';
 
-// User pages
+
 import UserDashboard from './pages/user/UserDashboard';
 import SearchBooks   from './pages/user/SearchBooks';
 import UserReports   from './pages/user/UserReports';
@@ -41,16 +41,16 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Root → Login */}
+         
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* ===== ADMIN ONLY ROUTES ===== */}
+        
           <Route path="/admin/dashboard"
             element={<ProtectedRoute adminOnly><Layout><Dashboard /></Layout></ProtectedRoute>} />
 
-          {/* Maintenance — Admin only */}
+          
           <Route path="/admin/maintenance/add-book"
             element={<ProtectedRoute adminOnly><Layout><AddBook /></Layout></ProtectedRoute>} />
           <Route path="/admin/maintenance/update-book"
@@ -62,7 +62,7 @@ export default function App() {
           <Route path="/admin/maintenance/users"
             element={<ProtectedRoute adminOnly><Layout><UserManagement /></Layout></ProtectedRoute>} />
 
-          {/* Transactions — Admin only */}
+          
           <Route path="/admin/transactions/issue"
             element={<ProtectedRoute adminOnly><Layout><IssueBook /></Layout></ProtectedRoute>} />
           <Route path="/admin/transactions/return"
@@ -70,7 +70,7 @@ export default function App() {
           <Route path="/admin/transactions/pay-fine"
             element={<ProtectedRoute adminOnly><Layout><PayFine /></Layout></ProtectedRoute>} />
 
-          {/* Reports — Admin only */}
+          
           <Route path="/admin/reports/books"
             element={<ProtectedRoute adminOnly><Layout><BooksReport /></Layout></ProtectedRoute>} />
           <Route path="/admin/reports/movies"
@@ -84,7 +84,7 @@ export default function App() {
           <Route path="/admin/reports/issue-requests"
             element={<ProtectedRoute adminOnly><Layout><IssueRequests /></Layout></ProtectedRoute>} />
 
-          {/* ===== USER ROUTES ===== */}
+       
           <Route path="/user/dashboard"
             element={<ProtectedRoute><Layout><UserDashboard /></Layout></ProtectedRoute>} />
           <Route path="/user/search"
@@ -92,7 +92,7 @@ export default function App() {
           <Route path="/user/reports"
             element={<ProtectedRoute><Layout><UserReports /></Layout></ProtectedRoute>} />
 
-          {/* Catch-all */}
+          
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>

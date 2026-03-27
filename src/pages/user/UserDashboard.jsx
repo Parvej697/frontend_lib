@@ -30,7 +30,7 @@ export default function UserDashboard() {
         subtitle="Library Management System — User Dashboard"
       />
 
-      {/* Info card */}
+      
       <div className="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-5">
         <div className="flex items-start gap-3">
           <div className="text-2xl">ℹ️</div>
@@ -44,7 +44,7 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      {/* Action cards */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {actions.map(a => (
           <button

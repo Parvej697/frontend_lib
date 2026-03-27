@@ -6,7 +6,7 @@ import Alert from '../../../components/Alert';
 
 export default function UserManagement() {
   const [users, setUsers]   = useState([]);
-  const [mode, setMode]     = useState('NEW'); // NEW or EXISTING
+  const [mode, setMode]     = useState('NEW'); 
   const [selected, setSelected] = useState(null);
   const [form, setForm]     = useState({ username:'', name:'', password:'', isAdmin:false, isActive:true });
   const [alert, setAlert]   = useState({ type:'', msg:'' });

@@ -37,7 +37,7 @@ export default function Sidebar() {
 
   return (
     <div className="w-60 min-h-screen bg-slate-900 text-white flex flex-col flex-shrink-0">
-      {/* Header */}
+ 
       <div className="p-5 border-b border-slate-700">
         <div className="text-xl font-bold text-white">📚 Library MS</div>
         <div className="text-slate-400 text-xs mt-1 truncate">{user?.name}</div>
@@ -48,7 +48,7 @@ export default function Sidebar() {
         </span>
       </div>
 
-      {/* Nav links */}
+    
       <nav className="flex-1 p-3 overflow-y-auto">
         {links.map((link, i) => {
           if (link.section) {
@@ -75,7 +75,7 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* Logout */}
+ 
       <div className="p-3 border-t border-slate-700">
         <button
           onClick={() => { logout(); navigate('/login'); }}
