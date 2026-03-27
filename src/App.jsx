@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 // Admin pages
 import Dashboard        from './pages/admin/Dashboard';
@@ -43,6 +44,7 @@ export default function App() {
           {/* Root → Login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
           {/* ===== ADMIN ONLY ROUTES ===== */}
           <Route path="/admin/dashboard"
