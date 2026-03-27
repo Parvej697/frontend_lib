@@ -17,11 +17,17 @@ export default function Login() {
     }
     setError(''); setLoading(true);
     try {
-      const res = await api.post('/auth/login', form);
-      const { token, isAdmin, name, username } = res.data;
-      login(token, isAdmin, name, username);
-      navigate(isAdmin ? '/admin/dashboard' : '/user/dashboard');
-    } catch (err) {
+  const res = await api.post('/auth/login', form);
+
+  // ✅ YAHI ADD KARNA HAI
+  console.log("Login Response:", res.data);
+  console.log("isAdmin type:", typeof res.data.isAdmin);
+
+  const { token, isAdmin, name, username } = res.data;
+
+  login(token, isAdmin, name, username);
+  navigate(isAdmin ? '/admin/dashboard' : '/user/dashboard');
+} catch (err) {
       setError(err.response?.data?.message || 'Invalid credentials. Please try again.');
     } finally { setLoading(false); }
   };
@@ -55,10 +61,10 @@ export default function Login() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <div className="mt-6 p-4 bg-slate-50 rounded-xl text-xs text-slate-500 space-y-1">
-          <div><span className="font-semibold">Admin:</span> admin / admin</div>
-          <div><span className="font-semibold">User:</span> user / user</div>
-        </div>
+       <div className="mt-6 p-4 bg-slate-50 rounded-xl text-xs text-slate-500 space-y-1">
+            <div><span className="font-semibold">Admin:</span> adm / adm</div>
+            <div><span className="font-semibold">User:</span> user / user</div>
+      </div>
       </div>
     </div>
   );

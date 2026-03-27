@@ -12,12 +12,15 @@ export function AuthProvider({ children }) {
   });
 
   const login = (token, isAdmin, name, username) => {
-    localStorage.setItem('token',    token);
-    localStorage.setItem('isAdmin',  isAdmin);
-    localStorage.setItem('name',     name);
-    localStorage.setItem('username', username);
-    setUser({ token, isAdmin, name, username });
-  };
+  const isAdminBool = isAdmin === true || isAdmin === 'true';
+
+  localStorage.setItem('token', token);
+  localStorage.setItem('isAdmin', isAdminBool);
+  localStorage.setItem('name', name);
+  localStorage.setItem('username', username);
+
+  setUser({ token, isAdmin: isAdminBool, name, username });
+};
 
   const logout = () => { localStorage.clear(); setUser(null); };
 
